@@ -75,6 +75,7 @@ def home(request):
     return render(request, 'base/home.html', context)
 
 
+@login_required
 def room(request, pk):
     my_room = get_object_or_404(Room, pk=pk)
     room_messages = my_room.messages.order_by('-created')
